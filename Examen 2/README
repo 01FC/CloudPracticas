@@ -1,0 +1,29 @@
+
+- Descripción de las secciones que funcionan y las que no funcionan.
+
+	SI funcionan:
+
+		-VPC con salida a internet
+		-Rol IAM para las ami
+		-Tarea a ejecutar se encuentra en https://hub.docker.com/_/httpd
+		-Balanceador de cargas
+
+	NO funcionan:
+
+		-Grupo de escalamiento
+		-Creacion de insstancias que se agreguen al grupo de escalamiento
+
+
+
+- Descripción general de cómo trabaja el código entregado. 
+
+Basado en plantillas de la documentacion de aws para la descripcion de la infraestructura, principalmente se
+describe un VPC con una tabla de ruteo para permitir el acceso a internet por el puerto 80 a la subred,
+En la subred hay un load balancer y el grupo de auto escalamiento (que no funciona).
+Otro componente descrito es un grupo de seguridad para el contenedor y uno para el cluster indicando los puertos de acceso.
+Un cluster ECS se describe para ejecutar contenedores. 
+Ademas de esto hay un servicio del cluster descrito para realizar una tarea.
+
+La salida de la tarea es el DNS del balanceador de carga y el puerto.
+
+
